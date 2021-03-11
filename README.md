@@ -75,6 +75,7 @@ aws lambda update-function-code \
 
 ```
 RESPONSE_FILE=$(mktemp)
+
 aws lambda invoke \
   --function-name hello-lambda \
   --invocation-type RequestResponse \
