@@ -1,0 +1,62 @@
+{
+  "name": "hello-lambda",
+  "version": "0.0.0",
+  "description": "AWS Lambda Function Template",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --quiet --fix",
+    "clean": "rm *.zip; rm -fr dist",
+    "build": "tsc",
+    "test": "jest",
+    "pack": "rm -f *.zip; npm-pack-zip; archive=$(ls *.zip | head -1); cd dist; zip -u -r ../$archive *; cd .."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appbricks/node-lambda-template.git"
+  },
+  "keywords": [
+    "AppBricks",
+    "MyCloudSpace",
+    "backend",
+    "functions"
+  ],
+  "author": "Mevan Samaratunga",
+  "license": "GPL-3.0",
+  "dependencies": {},
+  "bundledDependencies": [],
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.72",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.33",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "aws-lambda-mock-context": "^3.2.1",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "npm-pack-zip": "^1.2.9",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.3",
+    "typescript": "^4.2.3"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.(t|j)sx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "files": [
+    "resources/**"
+  ]
+}
