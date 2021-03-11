@@ -85,3 +85,15 @@ aws lambda invoke \
 
 cat ${RESPONSE_FILE}
 ```
+
+6. Retrieve the logs from the last run.
+
+```
+LOG_STREAM_NAME=$(aws logs describe-log-streams \
+  --log-group-name "/aws/lambda/hello-lambda" \
+  --query "logStreams[*].logStreamName" --output text | cut -f1)
+
+aws logs get-log-events \
+  --log-group-name "/aws/lambda/hello-lambda" \
+  --log-stream-name "${LOG_STREAM_NAME}"
+```
