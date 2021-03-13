@@ -1,10 +1,10 @@
-import { hello } from '../';
+import { handler } from '../';
 
 const context = require('aws-lambda-mock-context');
 
 it('calls the hello lambda function', () => {
 
-  hello(
+  handler(
     {
       name: 'Tester'
     }, 

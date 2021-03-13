@@ -8,7 +8,7 @@ interface HelloResponse {
   body: string;
 }
 
-const hello: Handler<HelloEvent, HelloResponse> = (event, context, callback) => {
+const handler: Handler<HelloEvent, HelloResponse> = (event, context, callback) => {
 
   console.log('Hello event: ', event);
   console.log('Hello context: ', context);
@@ -22,4 +22,4 @@ const hello: Handler<HelloEvent, HelloResponse> = (event, context, callback) => 
   callback(null, response);
 };
 
-export { hello }
+export { handler }

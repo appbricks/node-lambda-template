@@ -58,7 +58,7 @@ ACCT_ID=$(aws sts get-caller-identity --output text | cut -f3)
 aws lambda create-function \
   --function-name hello-lambda \
   --runtime nodejs14.x \
-  --handler index.hello \
+  --handler index.handler \
   --role arn:aws:iam::${ACCT_ID}:role/hello-lambda \
   --zip-file fileb://$(pwd)/hello-lambda.zip
 ```
