@@ -10,7 +10,7 @@
     "build": "tsc",
     "test": "jest",
     "pack": "npm-pack-zip && pushd dist && zip -u -r ../${npm_package_name} * && popd",
-    "publish": "npm run pack && aws lambda update-function-code --function-name ${npm_package_prefix}${npm_package_name} --zip-file fileb://${npm_package_name}.zip && rm ${npm_package_name}.zip"
+    "publish": "npm run build && npm run pack && aws lambda update-function-code --function-name ${npm_package_prefix}${npm_package_name} --zip-file fileb://${npm_package_name}.zip && rm ${npm_package_name}.zip"
   },
   "repository": {
     "type": "git",
